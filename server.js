@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
-const cors = require ('cors')
+const cors = require('cors')
 require('dotenv').config()
 
 const app = express()
@@ -19,29 +19,55 @@ MongoClient.connect(dbConnectionStr)
   .then(client => {
     console.log(`Connected to ${dbName} Database broski`)
     db = client.db(dbName)
+    //addint this stuff below after initial failure
+    const quotesCollection = db.collection('quotes')
+
+    //Set Middleware
+    app.use(cors())
+    app.set('view engine', 'ejs')
+    app.use(express.static('public'))
+    app.use(express.urlencoded({extended: true}))
+    app.use(express.json())
+    app.use(bodyParser.urlencoded({extended: true}))
+
+
+
+
+    app.get('/', (req,res) => {
+      db.collection('quotes').find().toArray()
+        .then(data => {
+          let nameList = data.map( item => item.author)
+          console.log(data)
+          res.render('index.ejs', {quotes: item.author}) //might change this
+        })
+        .catch(error => console.log(error))
+    })
+
+
+    //end of added attempt
   })
 
 
-//Set Middleware
-app.use(cors())
-app.set('view engine', 'ejs')
-app.use(express.static('public'))
-app.use(express.urlencoded({extended: true}))
-app.use(express.json())
-app.use(bodyParser.urlencoded({extended: true}))
+// //Set Middleware
+// app.use(cors())
+// app.set('view engine', 'ejs')
+// app.use(express.static('public'))
+// app.use(express.urlencoded({extended: true}))
+// app.use(express.json())
+// app.use(bodyParser.urlencoded({extended: true}))
 
 //CRUD Methods
 //READ
 
-app.get('/', (req,res) => {
-  db.collection('quotes').find().toArray()
-    .then(data => {
-      let nameList = data.map( item => item.author)
-      console.log(nameList)
-      res.render('index.ejs', {quotes: nameList}) //might change this
-    })
-    .catch(error => console.log(error))
-})
+// app.get('/', (req,res) => {
+//   db.collection('quotes').find().toArray()
+//     .then(data => {
+//       let nameList = data.map( item => item.author)
+//       console.log(results)
+//       res.render('index.ejs', {quotes: nameList}) //might change this
+//     })
+//     .catch(error => console.log(error))
+// })
 
 //CREATE
 app.post('/quotes', (req,res) =>{

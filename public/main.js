@@ -1,14 +1,14 @@
 // main.js
-const update = document.querySelector('#update-button')
+const addQuote = document.querySelector('#addQuote')
 
 const deleteButton = document.querySelector('#delete-button')
 
 const messageDiv = document.querySelector('#message')
 
 
-update.addEventListener('click', _ => {
+addQuote.addEventListener('click', _ => {
   fetch('/quotes', {
-    method: 'put',
+    method: 'post',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       author: document.getElementsByName('author')[0].value,
