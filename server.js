@@ -45,7 +45,7 @@ app.get('/', (req,res) => {
 
 })
 
-app.get('/api/', (req, res) => {
+app.get('/api', (req, res) => {
   infoCollection.find().toArray()
   .then( results => {
     console.log(results)
