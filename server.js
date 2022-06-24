@@ -19,37 +19,10 @@ MongoClient.connect(dbConnectionStr)
   .then(client => {
     console.log(`Connected to ${dbName} Database broski`)
     db = client.db(dbName)
-    //addint this stuff below after initial failure
-    // const quotesCollection = db.collection('quotes')
-
-    // //Set Middleware
-    // app.use(cors())
-    // app.set('view engine', 'ejs')
-    // app.use(express.static('public'))
-    // app.use(express.urlencoded({extended: true}))
-    // app.use(express.json())
-    // app.use(bodyParser.urlencoded({extended: true}))
-
-
-
-
-    // app.get('/', (req,res) => {
-    //   db.collection('quotes').find().toArray()
-    //     .then(data => {
-    //       let nameList = data.map( item => item.author)
-    //       console.log(data)
-    //       res.render('index.ejs', {quotes: item.author}) //might change this
-    //     })
-    //     .catch(error => console.log(error))
-    // })
-
-
-    // //end of added attempt
+    const infoCollection = db.collection('quotes')
   })
 
-  //commented below out when added it to above
-
-// //Set Middleware
+// Set Middleware
 app.use(cors())
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
@@ -61,13 +34,25 @@ app.use(bodyParser.urlencoded({extended: true}))
 // READ
 
 app.get('/', (req,res) => {
-  db.collection('quotes').find().toArray()
-    .then(data => {
-      let nameList = data.map( item => item.author)
-      console.log(data)
-      res.render('index.ejs', {quotes: nameList}) //might change this
-    })
-    .catch(error => console.log(error))
+  // db.collection('quotes').find().toArray()
+  //   .then(data => {
+  //     let nameList = data.map( item => item.author)
+  //     console.log(data)
+  //     res.render('index.ejs', {quotes: nameList}) //might change this
+  //   })
+  //   .catch(error => console.log(error))
+    res.sendFile(__dirname + '/index.html')
+
+})
+
+app.get('/api/', (req, res) => {
+  infoCollection.find().toArray()
+  .then( results => {
+    console.log(results)
+    res.json[results]
+  })
+  // res.send(infoCollection.getRandom())
+  // res.send(quotesRepository.getRandom(req.params.num || 1));
 })
 
 //CREATE
