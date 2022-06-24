@@ -19,7 +19,7 @@ MongoClient.connect(dbConnectionStr)
   .then(client => {
     console.log(`Connected to ${dbName} Database broski`)
     db = client.db(dbName)
-    const infoCollection = db.collection('quotes')
+    
   })
 
 // Set Middleware
@@ -46,10 +46,11 @@ app.get('/', (req,res) => {
 })
 
 app.get('/api', (req, res) => {
+  const infoCollection = db.collection('quotes')
   infoCollection.find().toArray()
   .then( results => {
     console.log(results)
-    res.json[results]
+    res.json(results)
   })
   // res.send(infoCollection.getRandom())
   // res.send(quotesRepository.getRandom(req.params.num || 1));
