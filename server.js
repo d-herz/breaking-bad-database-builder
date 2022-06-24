@@ -34,13 +34,6 @@ app.use(bodyParser.urlencoded({extended: true}))
 // READ
 
 app.get('/', (req,res) => {
-  // db.collection('quotes').find().toArray()
-  //   .then(data => {
-  //     let nameList = data.map( item => item.author)
-  //     console.log(data)
-  //     res.render('index.ejs', {quotes: nameList}) //might change this
-  //   })
-  //   .catch(error => console.log(error))
     res.sendFile(__dirname + '/index.html')
 
 })
@@ -52,8 +45,7 @@ app.get('/api', (req, res) => {
     console.log(results)
     res.json(results)
   })
-  // res.send(infoCollection.getRandom())
-  // res.send(quotesRepository.getRandom(req.params.num || 1));
+  
 })
 
 //CREATE
