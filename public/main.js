@@ -1,7 +1,7 @@
 // main.js
 const addQuote = document.querySelector('#addQuote')
 
-const deleteButton = document.querySelector('#delete-button')
+// const deleteButton = document.querySelector('#delete-button')
 
 const messageDiv = document.querySelector('#message')
 
