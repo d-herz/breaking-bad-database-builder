@@ -60,27 +60,27 @@ app.post('/quotes', (req,res) =>{
 
 
 //UPDATE
-app.put('/updateEntry', (req, res)=> {
-  console.log(req.body)
-  db.collection('quotes').findOneAndUpdate(
-    {author: req.body.author},
-    {
-      $set: {
-        author: req.body.author,
-        quote: req.body.quote
-      }
-    },
-    {
-      upsert: true
-    }
-  )
-  .then(result => {
-    console.log(result)
-    res.json('suckcess!')
-  })
-  .catch(error => console.log(error))
+// app.put('/updateEntry', (req, res)=> {
+//   console.log(req.body)
+//   db.collection('quotes').findOneAndUpdate(
+//     {author: req.body.author},
+//     {
+//       $set: {
+//         author: req.body.author,
+//         quote: req.body.quote
+//       }
+//     },
+//     {
+//       upsert: true
+//     }
+//   )
+//   .then(result => {
+//     console.log(result)
+//     res.json('suckcess!')
+//   })
+//   .catch(error => console.log(error))
  
-})
+// })
 
 //DELETE? Nah
 
