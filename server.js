@@ -17,7 +17,7 @@ let db,
 //Connect to Mongo
 MongoClient.connect(dbConnectionStr)
   .then(client => {
-    console.log(`Connected to ${dbName} Database broski`)
+    console.log(`Connected to ${dbName} Mongo Database broski`)
     db = client.db(dbName)
     
   })
@@ -51,11 +51,16 @@ app.get('/api', (req, res) => {
 //CREATE
 app.post('/quotes', (req,res) =>{
   console.log('Post HEARD')
-  db.collection('quotes').insertOne(req.body)
+  // db.collection('quotes').insertOne(
+  //   req.body,
+  //   console.log(req.body),
+  //   )
+  db.collection('quotes').insertOne({author: req.body.author, quote: req.body.quote})
   .then(result =>{
     console.log(result)
-    res.redirect('/')
-  }) 
+    res.redirect('/')    
+  })
+  .catch(err => console.error(error)) 
 })
 
 
