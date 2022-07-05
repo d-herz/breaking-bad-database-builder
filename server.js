@@ -17,7 +17,7 @@ let db,
 //Connect to Mongo
 MongoClient.connect(dbConnectionStr)
   .then(client => {
-    console.log(`Connected to ${dbName} Mongo Database broski`)
+    console.log(`Connected to ${dbName} Mongo Database DH`)
     db = client.db(dbName)
     
   })
@@ -90,5 +90,5 @@ app.post('/quotes', (req,res) =>{
 //DELETE? Nah
 
 app.listen(process.env.PORT || PORT , ()=> {
-  console.log("Dat Server is Running")
+  console.log(`Dat Server is Running on port = ${PORT}`)
 } )

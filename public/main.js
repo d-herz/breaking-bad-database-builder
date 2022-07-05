@@ -17,9 +17,9 @@ addQuote.addEventListener('click', _ => {
   .then(res=> {
     if (res.ok) return res.json()
   })
-  .then(response => {
-    window.location.reload(true)
-  })
+  // .then(response => {
+  //   window.location.reload(true) //tried commenting out to see if fixed double-posting issue (it did not, but still works otherwise, maybe we don't need this)
+  // })
 })
 
 
