@@ -12,8 +12,6 @@ let db,
   dbConnectionStr = process.env.DB_STRING,
   dbName = 'breaking-bad-quotes'
 
-
-
 //Connect to Mongo
 MongoClient.connect(dbConnectionStr)
   .then(client => {
