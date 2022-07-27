@@ -13,7 +13,7 @@ This API project acts as both a server for the client side "Breaking Bad Quotes!
   <li> A simple front-end interface for adding/updating quotes to my MongoDB database </li>
   <li> Backend server-side code built with Node and Express</li>
 </ul>
-This API allows me to easily store quotes on MongoDB, add quotes, and serve the quotes to the client-side "Breaking Bad Quotes!" page.
+This API allows me to easily store quotes on MongoDB, add quotes, and serve the quotes to the client-side "Breaking Bad Quotes!" page. The API is hosted on Heroku.
 </p>
 
 <!---- <h3 align="left">Recent Updates:</h3>
