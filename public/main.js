@@ -4,7 +4,6 @@ const addQuote = document.querySelector('#addQuote')
 // const deleteButton = document.querySelector('#delete-button')
 //const messageDiv = document.querySelector('#message')
 
-
 addQuote.addEventListener('click', _ => {
   fetch('/quotes', {
     method: 'post',
