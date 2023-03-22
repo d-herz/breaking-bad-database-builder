@@ -1,13 +1,13 @@
 
 <h1 align="center"> Breaking Bad Quotes! Database Builder </h1>
 
-<h3 align="center"> Backend Database Builder for my 'Breaking Bad Quotes!' API</h3>
+<h3 align="center"> Backend Database Builder for the 'Breaking Bad Quotes!' API</h3>
 
-<h3 align="center"> <a href="https://quotes-of-breakingbad.netlify.app/">Visit the live client site!</a></h3>
+<!-- <h3 align="center"> <a href="https://quotes-of-breakingbad.netlify.app/">Visit the live client site!</a></h3> --->
 
 <h3 align="left">About this project:</h3>
 <p align="left">
-This CRUD based API project acts as both a server for the client side "Breaking Bad Quotes!" site and as a useful front-end interface for adding and updating the quotes stored in my MongoDB. It has two main components:
+This CRUD based REST API project acts as both a server for the client side "Breaking Bad Quotes!" site and as a useful front-end interface for adding and updating the quotes stored in the MongoDB. It has two main components:
 
 <ul>
   <li> A simple front-end interface for adding/updating quotes to my MongoDB database </li>
